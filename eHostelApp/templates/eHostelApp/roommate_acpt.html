@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>eHostel Portal</title>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+    </style>
+	<link rel="stylesheet" href="{% static "base.css" %}" />
+</head>
+<body>
+    <h2> Roommate Requests from other students</h2>
+    
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+        
+
+    <table style="width:100%">
+        <tr>
+        <th>STUDENT ROLL NO</th>
+        <th>Accept</th>
+        <th>Decline</th>
+        </tr>
+       {%for t in temp%}
+        <tr>
+        <td> {{t.student}}</td>
+        <td>   <a href="{% url 'action' 'accept' t.id %}">  Accept  </a></td>
+        <td>   <a href="{% url 'action' 'decline' t.id %}"> Decline  </a></td>
+        </tr>
+        {%endfor%}
+    </table>
+
+
+    <a href="{%url 'dashboard'%}"> Dashboard  </a> <br>
+    <a href="{%url 'logout'%}"> Logout  </a>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

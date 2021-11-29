@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>eHostel Portal</title>
+	<link rel="stylesheet" href="{% static "base.css" %}" />
+</head>
+<body>
+	<h2> Verify with your institute credentials </h2>
+
+	{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+	<form action="{% url 'login_post'%}" method = "POST" id="form">
+		{% csrf_token %}
+		<fieldset>
+		    <legend>Institute Login</legend>
+			User ID:<br>
+	  			<input type="text" name="username" required><br>
+	  		Password:<br>
+	  			<input type="password" name="password" required><br>
+		</fieldset>
+		<br>
+		<input type="submit" value="Login" id="submit">
+	</form>
+</body>
+</html>

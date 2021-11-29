@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>eHostel Portal</title>
+	<link rel="stylesheet" href="{% static "base.css" %}" />
+</head>
+<body>
+    <h2>Allocate Room</h2>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form action= "{% url 'allocate' %}" method = "POST"  id="form">
+        {% csrf_token %}
+
+        Hostel Name:<br>
+        <select id="cars" name ="h_name">
+            {% for hostel in hostel_list %}
+                <option>{{hostel}}</option>
+            {%endfor%}
+          </select>
+          <br><br>
+        Room Number:<br>
+        <input type="number" name="room_no">   <br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <a href="{%url 'dashboard'%}"> Dashboard  </a> <br>
+    <a href="{%url 'logout'%}"> Logout  </a>
+
+</body>
+</html>

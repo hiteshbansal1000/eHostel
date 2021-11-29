@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>eHostel Portal</title>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+    </style>
+	<link rel="stylesheet" href="{% static "base.css" %}" />
+</head>
+<body>
+    <h2> Student Details </h2>
+
+    {% if valid %}
+       
+        <legend>Student Information:</legend>
+        Institute Registration Number : 
+            {{reg_no}}
+        <br> <br>
+        Name :
+            {{student_name}}
+        <br> <br>
+        Email ID : 
+            {{email}}
+        <br> <br>
+        Gender: 
+            {{gender}}
+        <br> <br>
+        Department :
+            {{branch}}
+        <br> <br>
+        Year : 
+            {{year}}
+        <br> <br>
+        Guardian Name : 
+            {{guardian_name}}
+        <br> <br>
+        Contact Number : 
+            {{phone_no}}
+        <br> <br>
+        Guardian Contact Number : 
+            {{guardian_phone}}
+        <br> <br>
+        Address : 
+            {{address}}
+        <br> <br>
+        City:
+            {{city}}
+            <br> <br>
+        State:
+        {{state}}
+        <br> <br>
+        Pincode:
+        {{pincode}}
+        <br> <br>
+        Hostel Name:
+        {{h_name}}
+        <br>
+        Room Number:
+        {{room_no}}
+        <br>
+
+
+
+    {% else %}
+        <p> NO RECORDS TO SHOW </p>
+    {% endif %}    
+
+
+    <a href="{%url 'dashboard'%}"> Dashboard  </a> <br>
+    <a href="{%url 'logout'%}"> Logout  </a>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>eHostel Portal</title>
+	<link rel="stylesheet" href="{% static "base.css" %}" />
+</head>
+<body>
+    <h2> Student Details Page </h2>
+    <h3>Enter the student Registration Number to show his/her details</h3>
+
+    <form action="{%url 'show_student'%}" method="POST">
+        {% csrf_token %}
+        <label for="fname">Registration Number of Student:</label><br>
+        <input type="text" id="lname" name="reg_no"><br><br>
+        <input type="submit" value="Submit">
+    </form> 
+    <a href="{%url 'dashboard'%}"> Dashboard  </a> <br>
+    <a href="{%url 'logout'%}"> Logout  </a>
+
+</body>
+</html>

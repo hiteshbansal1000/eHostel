@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>eHostel Portal</title>
+	<link rel="stylesheet" href="{% static "base.css" %}" />
+</head>
+<body>
+
+    {%if valid%}
+        <h2>Success! Room Allocated </h2>
+        <h3> Your room is <b>{{room_no}}</b> and Your hostel is <b>{{h_name}} </b></h3>
+    {%else%}  
+            <h3> Your room is not Allocated. </h3>
+    {%endif%}
+  
+
+    <br>
+    <a href="{%url 'dashboard'%}"> Dashboard  </a> <br>
+    <a href="{%url 'logout'%}"> Logout  </a>
+
+</body>
+</html>
